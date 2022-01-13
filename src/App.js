@@ -1,11 +1,12 @@
-import { Contador } from './componente/Contador';
-import { Estado } from './componente/Estado';
-import { Nombre } from './componente/Nombre';
+import { Navbar } from './componente/Navbar';
+import { Datalist } from './componente/Datalist';
+
 
 function App() {
   return (
     <div>
-      <Estado/>
+      <Navbar />
+      <Datalist/>
     </div>
   );
 }
