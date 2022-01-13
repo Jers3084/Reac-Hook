@@ -9,7 +9,7 @@ export const Formulario = (props) => {
             placeholder='Nombre' 
             className='form-control'
             id='name'
-            defaultValue={props.d[0]}
+            defaultValue={props.d.nombre}
             
          />
             
@@ -20,7 +20,7 @@ export const Formulario = (props) => {
             placeholder='Usuario' 
             className='form-control'
             id="user"
-            defaultValue={props.d[1]}
+            defaultValue={props.d.usuario}
          />
             
             <br/>
@@ -30,7 +30,7 @@ export const Formulario = (props) => {
             type='texto' 
             placeholder='Correo' 
             className='form-control'
-            defaultValue={props.d[2]}
+            defaultValue={props.correo}
             
          />
       </div>

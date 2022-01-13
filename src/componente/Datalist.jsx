@@ -4,7 +4,7 @@ import { Formulario } from "./Formulario";
 
 export const Datalist = () => {
   const [lista, setLista] = useState([]);
-  const [datos, setDatos] = useState([])
+  const [datos, setDatos] = useState({})
   
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export const Datalist = () => {
 
 
   function mostrar(objeto){
-    setDatos([objeto.name, objeto.username, objeto.email]);
+    setDatos({nombre:objeto.name, usuario:objeto.username, correo:objeto.email});
   }
 
   return (
@@ -52,6 +52,7 @@ export const Datalist = () => {
           }
         </tbody>
       </table>
+      <hr/>
       <Formulario d={datos}/>
     </div>
   )
