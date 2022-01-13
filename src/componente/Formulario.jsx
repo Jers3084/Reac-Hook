@@ -30,7 +30,7 @@ export const Formulario = (props) => {
             type='texto' 
             placeholder='Correo' 
             className='form-control'
-            defaultValue={props.correo}
+            defaultValue={props.d.correo}
             
          />
       </div>
