@@ -1,29 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Formulario } from "./Formulario";
 
 
-export const Datalist = () => {
-  const [lista, setLista] = useState([]);
-  const [datos, setDatos] = useState({})
-  
-
-  useEffect(() => {
-    console.log("Ejecuto useEffect");
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((data) => data.json())
-      .then((resultado) => {
-        setLista(resultado);
-      });
-
-  }, []);
-
-
-  function mostrar(objeto){
-    setDatos({nombre:objeto.name, usuario:objeto.username, correo:objeto.email});
-  }
-
+export const Datalist = ({lista, mostrarobj }) => {
+ 
   return (
-    <div className='container'>
+    <div className="container">
       <table className="table">
         <thead>
           <tr>
@@ -31,29 +11,30 @@ export const Datalist = () => {
             <th scope="col">Nombre</th>
             <th scope="col">Usuario</th>
             <th scope="col">Email</th>
-            <th scope="col">Mantenimientos</th>
+            <th scope="col">Edicion</th>
           </tr>
         </thead>
         <tbody>
-          {
-          lista.map((el) => {
+          {lista.map((el) => {
             return (
-              
-                <tr key={el.id}>
-                  <td>{el.id}</td>
-                  <td>{el.name}</td>
-                  <td>{el.username}</td>
-                  <td>{el.email}</td>
-                  <td ><button onClick={() => mostrar(el)} className="btn btn-success">Editar</button></td>
-                </tr>
-              
+              <tr key={el.id}>
+                <td>{el.id}</td>
+                <td>{el.name}</td>
+                <td>{el.username}</td>
+                <td>{el.email}</td>
+                <td>
+                  <button
+                    onClick={() => mostrarobj(el)}
+                    className="btn btn-success">
+                    Editar
+                  </button>
+                </td>
+              </tr>
             );
-          })
-          }
+          })}
         </tbody>
       </table>
-      <hr/>
-      <Formulario d={datos}/>
+      <hr />
     </div>
-  )
+  );
 };
